@@ -19,3 +19,14 @@ after_success:
   - docker push  jeffreylobato/multi-nginx
   - docker push  jeffreylobato/multi-server
   - docker push jeffreylobato/multi-worker
+
+deploy:
+  provider: heroku
+  api_key:
+  region: 'us-east-2'
+  app: 'multi-docker'
+  env: 'Multidocker-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-134341822783'
+  bucket_path: 'docker-multi'
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
